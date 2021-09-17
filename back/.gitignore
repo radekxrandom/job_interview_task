@@ -1,0 +1,5 @@
+/node_modules
+.env
+/scraps
+database.sqlite3
+sqlitememory
