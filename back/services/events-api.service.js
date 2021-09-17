@@ -1,25 +1,25 @@
-const sequelize = require('sequelize')
+const sequelize = require('sequelize');
 
 class EventApiService {
-	constructor(eventOrm){
+	constructor(eventOrm) {
 		this.eventOrm = eventOrm;
 	}
-	async getAll(limit = 15, offset = 0){
+	async getAll(limit = 15, offset = 0) {
 		// TO-DO add pagination
-		const {rows, count} = await this.eventOrm.findAndCountAll({
-  limit,
-  offset,
-		order:  sequelize.literal('id DESC')
-	});
+		const { rows, count } = await this.eventOrm.findAndCountAll({
+			limit,
+			offset,
+			order: sequelize.literal('id DESC'),
+		});
 		const paginatedEvents = {
 			events: rows,
 			count,
 			limit,
-			offset
-		}
+			offset,
+		};
 		return paginatedEvents;
 	}
-	async create(formData){
+	async create(formData) {
 		const event = await this.eventOrm.create(formData);
 		return event;
 	}
