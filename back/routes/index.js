@@ -6,5 +6,6 @@ const eventSchema = require('../schemas/event.schema');
 
 router.get('/', eventsApi.getEvents);
 router.post('/', validate(eventSchema), eventsApi.createEvent);
+router.delete('/:id', eventsApi.deleteEvent);
 
 module.exports = router;
