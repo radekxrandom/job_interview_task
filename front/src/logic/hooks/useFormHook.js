@@ -6,7 +6,8 @@ import {useSetRecoilState} from 'recoil';
 import {eventsList} from '../state/atoms/eventsList';
 
 export default function useFormHook(
-	ValidatorClass,
+	FormValidator,
+	FieldsValidator,
 	setFormErrors,
 	clearForm,
 	formValues
@@ -16,7 +17,6 @@ export default function useFormHook(
 	const [percentage, setPercentage] = useState(0);
 
 	const displayErrAlert = () => {
-		//openAlert(text, "info");
 		setIsFormShaking(true);
 		setTimeout(() => setIsFormShaking(false), 300);
 	};
@@ -32,7 +32,7 @@ export default function useFormHook(
 				setPercentage(percentCompleted);
 			},
 		};
-		const postResponse = axios
+		axios
 			.post(process.env.REACT_APP_SERVER_URL, form, config)
 			.then(res => {
 				console.log(res.data);
@@ -44,20 +44,14 @@ export default function useFormHook(
 			.catch(error => {
 				console.error('Upload Error:', error);
 			});
-		postResponse.then(() => {
-			console.log('File uploaded successfully.');
-		});
 	};
 
 	const submit = async () => {
 		const formData = {
-			firstName: formValues.firstName,
-			lastName: formValues.lastName,
-			email: formValues.email,
-			date: formValues.date,
+			...formValues,
 		};
-		const validator = new ValidatorClass(true);
-		const [isValid, errors] = validator.validateAll(formData);
+		const validator = new FormValidator(FieldsValidator, true);
+		const [isValid, errors] = validator.validate(formData);
 		if (!isValid) {
 			setFormErrors(errors);
 			displayErrAlert();
