@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&amp;subset=latin-ext');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@100;200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400&display=swap');
 .eventsList {
 	width: fit-content;
 	margin: auto;
@@ -19,6 +22,9 @@
 	align-content: center;
 	justify-content: space-between;
 	min-width: 36vw;
+	font-family: 'Lato';
+	font-weight: 400;
+	color: #656565f2;
 }
 
 span.eventField {
@@ -61,6 +67,7 @@ span.prmpt {
 	box-shadow: 0 0 9px 1px #00000057;
 	border-radius: 8px;
 	font-size: 1rem;
+	font-family: 'Roboto';
 }
 
 span.form-go-back.ic {
@@ -119,7 +126,7 @@ span.err {
 	margin-left: 0.5vw;
 	font-size: 0.85rem;
 	position: absolute;
-	margin-top: 1.75rem;
+	margin-top: 1.95rem;
 	color: #ff91a6;
 }
 
@@ -131,6 +138,7 @@ span.inputWrapper {
 	display: flex;
 	flex-flow: column;
 	align-content: center;
+	font-family: 'Roboto';
 }
 
 /* ----------------------------------------------
@@ -312,4 +320,32 @@ span.inputWrapper {
 	100% {
 		transform: rotate(360deg);
 	}
+}
+
+.notification {
+	width: 10vw;
+	display: flex;
+	justify-content: center;
+	position: absolute;
+	left: 43vw;
+	padding: 0.5vh;
+	background: #716ea6;
+	border-radius: 5px;
+	color: white;
+	font-size: 1.25rem;
+}
+.error {
+	color: white;
+	width: fit-content;
+	margin: auto;
+	text-align: center;
+	padding-top: 10%;
+	font-size: 3rem;
+	font-family: 'Quicksand';
+}
+
+.errWrap {
+	background: #303846;
+	width: 100vw;
+	height: 100vh;
 }
