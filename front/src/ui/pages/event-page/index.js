@@ -5,6 +5,7 @@ import TransitionGroup from 'react-transition-group/TransitionGroup';
 
 import useFormHook from '../../../logic/hooks/useFormHook';
 import useInput from '../../../logic/hooks/useInput';
+import FieldsValidator from '../../../logic/tools/FieldsValidator';
 import Validator from '../../../logic/tools/Validator';
 import Form from '../../blocks/form';
 import IconButton from '../../elements/icon-button';
@@ -19,13 +20,14 @@ const EventPage = props => {
 		email: '',
 		date: '',
 	});
-	const [formValues, onChange, clearForm] = useInput(
-		Validator,
+	const [formValues, onChange, onBlur, clearForm] = useInput(
+		FieldsValidator,
 		formErrors,
 		setFormErrors
 	);
 	const [isFormShaking, submit, displayErrAlert, percentage] = useFormHook(
 		Validator,
+		FieldsValidator,
 		setFormErrors,
 		clearForm,
 		formValues
