@@ -30,7 +30,7 @@ module.exports = {
 		'prefer-arrow-callback': ['warn', { allowNamedFunctions: true }],
 		semi: ['error'],
 		'semi-style': ['warn', 'last'],
-		'space-before-function-paren': ['warn'],
+		'space-before-function-paren': ['warn', 'never'],
 		'block-scoped-var': ['warn'],
 		complexity: ['warn'],
 		'no-constructor-return': ['warn'],
