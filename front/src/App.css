@@ -22,6 +22,7 @@
 }
 
 span.eventField {
+	width: 20%;
 	/* padding: 0 1vw; */
 }
 
@@ -287,6 +288,7 @@ span.inputWrapper {
 	}
 	span.eventField {
 		padding: 0 1vw;
+		width: initial;
 	}
 	span.form-add.ic {
 		font-size: 2.25rem;
