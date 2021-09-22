@@ -11,6 +11,7 @@ const Input = props => {
 			})}
 			placeholder={props.placeholder}
 			onChange={props.onChange}
+			onBlur={props.onBlur}
 			value={props.formValue}
 			aria-label={props.ariaLabel || props.placeholder}
 			required

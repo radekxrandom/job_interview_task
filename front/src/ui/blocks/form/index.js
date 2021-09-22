@@ -31,6 +31,7 @@ const Form = props => {
 					<InputField
 						type='text'
 						onChange={props.onChange}
+						onBlur={props.onBlur}
 						formValue={props.formValues.firstName}
 						formError={props.formErrors.firstName}
 						fieldName='firstName'
@@ -40,6 +41,7 @@ const Form = props => {
 					<InputField
 						type='text'
 						onChange={props.onChange}
+						onBlur={props.onBlur}
 						formValue={props.formValues.lastName}
 						formError={props.formErrors.lastName}
 						fieldName='lastName'
@@ -51,6 +53,7 @@ const Form = props => {
 					<InputField
 						type='email'
 						onChange={props.onChange}
+						onBlur={props.onBlur}
 						formValue={props.formValues.email}
 						formError={props.formErrors.email}
 						fieldName='email'
@@ -62,6 +65,7 @@ const Form = props => {
 					<InputField
 						type='date'
 						onChange={props.onChange}
+						onBlur={props.onBlur}
 						formValue={props.formValues.date}
 						formError={props.formErrors.date}
 						fieldName='date'

@@ -58,6 +58,7 @@ const EventPage = props => {
 							closeForm={toggleForm}
 							submitForm={submit}
 							onChange={onChange}
+							onBlur={onBlur}
 							formValues={formValues}
 							formErrors={formErrors}
 							percentage={percentage}
