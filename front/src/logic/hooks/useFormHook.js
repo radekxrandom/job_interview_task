@@ -10,9 +10,11 @@ export default function useFormHook(
 	FieldsValidator,
 	setFormErrors,
 	clearForm,
-	formValues
+	formValues,
+	toggleForm
 ) {
 	const [isFormShaking, setIsFormShaking] = useState(false);
+	const [isFormRejected, setIsFormRejected] = useState(false);
 	const setEvents = useSetRecoilState(eventsList);
 	const [percentage, setPercentage] = useState(0);
 
@@ -38,10 +40,17 @@ export default function useFormHook(
 				console.log(res.data);
 				setTimeout(() => {
 					setPercentage(0);
+					clearForm('');
+					toggleForm(false);
 					setEvents(oldEventsList => [res.data, ...oldEventsList]);
 				}, 1000);
 			})
 			.catch(error => {
+				setIsFormRejected(true);
+				setTimeout(() => {
+					setPercentage(0);
+					setIsFormRejected(false);
+				}, 1000);
 				console.error('Upload Error:', error);
 			});
 	};
@@ -57,8 +66,7 @@ export default function useFormHook(
 			displayErrAlert();
 			return;
 		}
-		clearForm('');
 		await post(formData);
 	};
-	return [isFormShaking, submit, displayErrAlert, percentage];
+	return [isFormShaking, isFormRejected, submit, displayErrAlert, percentage];
 }

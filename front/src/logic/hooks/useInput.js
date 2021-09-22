@@ -34,7 +34,7 @@ export default function useInput(ValidatorClass, formErrors, setFormErrors) {
 
 	const onChange = ev => {
 		const { name, value } = ev.target;
-		if (value.length > 20) {
+		if (value.length > 40) {
 			//	value.length = 20;
 			setFormErrors(err => ({
 				...err,
