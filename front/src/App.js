@@ -3,12 +3,13 @@ import './App.css';
 import React from 'react';
 import {RecoilRoot} from 'recoil';
 
-import MainView from './containers/MainView';
+import EventPage from './ui/pages/event-page';
 
+//import MainView from './containers/MainView';
 function App() {
 	return (
 		<RecoilRoot>
-			<MainView />
+			<EventPage />
 		</RecoilRoot>
 	);
 }
