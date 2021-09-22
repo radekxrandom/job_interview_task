@@ -114,15 +114,6 @@ module.exports = {
 		eqeqeq: ['warn'],
 		'no-compare-neg-zero': ['warn'],
 		'no-dupe-else-if': ['warn'],
-		'array-bracket-spacing': [
-			'warn',
-			'always',
-			{
-				singleValue: false,
-				objectsInArrays: true,
-				arraysInArrays: false,
-			},
-		],
 		'block-spacing': ['error', 'always'],
 		'brace-style': [
 			'off',

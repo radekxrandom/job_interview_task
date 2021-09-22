@@ -14,7 +14,7 @@ const Event = props => {
 				{props.email}
 			</Text>
 			<Text fieldClass='date' isEventField={true}>
-				{props.date}
+				{props.date.split('T')[0]}
 			</Text>
 		</Card>
 	);

@@ -1,10 +1,6 @@
 import React from 'react';
 
 const LoadingIndicator = props => {
-	return (
-		<div className='loaderWrap'>
-			<div className='loader'>Loading...</div>
-		</div>
-	);
+	return <div class='loader'></div>;
 };
 export default LoadingIndicator;
