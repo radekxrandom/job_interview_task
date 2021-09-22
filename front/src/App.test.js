@@ -5,12 +5,6 @@ import React from 'react';
 
 import App from './App';
 
-test('renders loading screen', () => {
-	render(<App />);
-	const loading = screen.getByText('Loading...');
-	expect(loading).toBeInTheDocument();
-});
-
 jest.mock('axios');
 
 describe('App', () => {

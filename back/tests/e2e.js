@@ -31,6 +31,7 @@ test.serial('Creating new event; POST /', async t => {
 	const eventData = createFakeEvent();
 	const res = await request(app).post('/').send(eventData);
 	const { body: event, status } = res;
+	console.log(res.body);
 	t.is(status, 201);
 	t.is(event.firstName, eventData.firstName);
 	t.is(event.lastName, eventData.lastName);
@@ -43,10 +44,11 @@ test.serial('Retrieving all events in the db; GET /', async t => {
 		body: { events, count, limit, offset },
 		status,
 	} = res;
+	console.log(res.body);
 	t.is(status, 200);
 	t.is(events.length === 15, true);
-	t.is(count === 20, true);
-	t.is(limit === 15, true);
+	t.is(count, 20);
+	t.is(limit, 15);
 	t.is(offset === 0, true);
 });
 
@@ -56,6 +58,7 @@ test.serial('Testing pagination; GET /?limit=5&offset=0', async t => {
 		body: { events, count, limit, offset },
 		status,
 	} = res;
+	console.log(res.body);
 	t.is(status, 200);
 	t.is(events.length === 5, true);
 	t.is(count === 20, true);
@@ -72,6 +75,7 @@ test.serial(
 			body: { error },
 			status,
 		} = res;
+		console.log(res.body);
 		t.is(status, 422);
 		t.is(error.length === 4, true);
 	}
@@ -87,6 +91,7 @@ test.serial(
 			body: { error },
 			status,
 		} = res;
+		console.log(res.body);
 		t.is(status, 422);
 		t.is(error.length === 1, true);
 		t.is(error[0], '"email" must be a valid email');
