@@ -14,6 +14,8 @@ class FieldsValidator {
 	}
 
 	static checkRegex(value, key, regex = /^[a-z0-9]+$/i) {
+		let errors = {};
+		let isFormValid = true;
 		if (typeof value !== 'undefined' && !regex.test(value)) {
 			isFormValid = false;
 			errors[key] = `Invalid ${key} format`;
