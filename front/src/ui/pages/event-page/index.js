@@ -19,7 +19,7 @@ const EventPage = props => {
 		email: '',
 		date: '',
 	});
-	const [formValues, onChange, clearForm] = useInput(
+	const [formValues, onChange, onBlur, clearForm] = useInput(
 		Validator,
 		formErrors,
 		setFormErrors
@@ -56,6 +56,7 @@ const EventPage = props => {
 							closeForm={toggleForm}
 							submitForm={submit}
 							onChange={onChange}
+							onBlur={onBlur}
 							formValues={formValues}
 							formErrors={formErrors}
 							percentage={percentage}
