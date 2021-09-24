@@ -94,6 +94,7 @@ test.serial(
 		console.log(res.body);
 		t.is(status, 422);
 		t.is(error.length === 1, true);
-		t.is(error[0], '"email" must be a valid email');
+		t.is(error[0].message, 'Email must be a valid email');
+		t.is(error[0].key, 'email');
 	}
 );
