@@ -112,7 +112,6 @@ export default function useFormHook(
 		}
 			await post(formData);
 			console.error('Upload Error:', error);
-		}
 	};
 	return [
 		isFormShaking,
