@@ -102,23 +102,15 @@ export default function useFormHook(
 		const formData = {
 			...formValues,
 		};
-		/*
+
 		const validator = new FormValidator(FieldsValidator, true);
 		const [isValid, errors] = validator.validate(formData);
 		if (!isValid) {
 			setFormErrors(errors);
 			displayErrAlert();
 			return;
-		}*/
-		try {
+		}
 			await post(formData);
-		} catch (error) {
-			console.log(error);
-			setIsFormRejected(true);
-			setTimeout(() => {
-				setPercentage(0);
-				setIsFormRejected(false);
-			}, 1000);
 			console.error('Upload Error:', error);
 		}
 	};
