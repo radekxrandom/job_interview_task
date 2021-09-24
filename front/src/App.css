@@ -25,8 +25,15 @@
 	font-family: 'Lato';
 	font-weight: 400;
 	color: #656565f2;
+	min-height: 5vh;
+	align-items: center;
 }
 
+.ic {
+	display: flex;
+	align-self: center;
+	font-size: 3rem;
+}
 span.eventField {
 	width: 20%;
 	/* padding: 0 1vw; */
@@ -37,9 +44,6 @@ span.first {
 }
 
 svg.addIcon {
-	display: flex;
-	align-self: center;
-	font-size: 2rem;
 	color: #446581;
 }
 
@@ -57,12 +61,12 @@ svg.addIcon:hover {
 }
 span.prmpt {
 	display: flex;
-	font-size: 1.25rem;
-}
+	font-size: 3rem;
+	}
 
 .inpt {
-	margin: 0 0.25vw;
-	padding: 0.25vh 0.25vw;
+	margin: 0 0.5vw;
+	padding: 0.4rem 0.5rem;
 	border: none;
 	box-shadow: 0 0 9px 1px #00000057;
 	border-radius: 8px;
@@ -70,9 +74,8 @@ span.prmpt {
 	font-family: 'Roboto';
 }
 
-span.form-go-back.ic {
-	margin-right: 1vw;
-	font-size: 1.5rem;
+span.form-go-back.ic, span.form-add.ic {
+	margin-right: 0.5vw;
 }
 
 span.label {
@@ -81,6 +84,7 @@ span.label {
 
 .form-add:hover + span.submit {
 	display: initial;
+	margin-left: -1vw;
 }
 
 .form-go-back:hover + span.go-back {
@@ -94,15 +98,7 @@ span.form-add.ic:hover {
 }
 
 span.form-add.ic {
-	margin-left: 1vw;
-	display: flex;
-	align-self: center;
 	color: #446581;
-	font-size: 2rem;
-}
-
-span.submit.label {
-	margin-left: 33vw;
 }
 
 .label {
@@ -113,20 +109,18 @@ span.submit.label {
 span.form-go-back.ic {
 	display: flex;
 	align-self: center;
-	font-size: 2rem;
 }
 span.eventFormField {
-	min-height: 2rem;
 	display: flex;
 	/* border: none; */
 	/* display: flex; */
 	/* justify-self: baseline; */
 }
 span.err {
-	margin-left: 0.5vw;
-	font-size: 0.85rem;
+	margin-left: 0.8vw;
+	font-size: 0.8rem;
 	position: absolute;
-	margin-top: 1.95rem;
+	margin-top: 2.5rem;
 	color: #ff91a6;
 }
 
@@ -237,16 +231,41 @@ span.inputWrapper {
 	margin: -3vh 0;
 }
 
+@media (max-width: 1920px) {
+	.inpt{
+  margin: 0 0.75vw;
+  padding: 0.35rem 0.2rem;
+		font-size: 1rem;
+	}
+	span.err{
+		margin-left: 0.7vw;
+  font-size: 0.75rem;
+  margin-top: 2.2rem;
+	}
+
+}
+
+@media (max-width: 1366px) {
+		.inpt{
+			padding: 0.1rem 0.2rem;
+			font-size: 0.95rem;
+		}
+		span.err{
+  font-size: 0.7rem;
+			margin-top: 1.75rem;
+		}
+
+}
+
 @media (max-width: 600px) {
 	.eventsList {
 		max-width: 90vw;
 		margin-top: 10vh;
 	}
-	.react-reveal.event.form-event {
-		flex-flow: column;
-	}
 	span.eventFormField {
 		display: initial;
+  width: 90%;
+  margin: 0 2.5%;
 	}
 	.inputWrapper {
 		margin: 2vh 0;
@@ -264,33 +283,22 @@ span.inputWrapper {
 		padding: 1vh 2.5vw;
 	}
 	span.err {
-		margin-top: 4.5vh;
-		font-size: 0.85rem;
-		margin-top: 6vh;
+		font-size: 0.8rem;
+		margin-top: 7vh;
 	}
 	.label {
-		text-align: right;
-		padding: 0 1.5vw 0.5vh;
 		position: initial;
-		display: flex;
 	}
 	.go-back {
-		text-align: right;
-		padding: 0 1.5vw 1vh;
-		margin: -2.5vh 1.5vw -1vh !important;
 		display: flex !important;
-		align-self: end;
 	}
-	.submit {
-		display: flex !important;
-		margin: -3.5vh 1.5vw 1vh !important;
-		justify-self: end;
-		align-self: end;
-	}
+	span.form-go-back.ic, span.form-add.ic {
+  margin-right: 10vw;
+}
 	.first {
 		padding-right: 1vw !important;
 	}
-	.date {
+	.eventField.date {
 		flex-basis: 100%;
 		text-align: right;
 	}
@@ -298,8 +306,15 @@ span.inputWrapper {
 		padding: 0 1vw;
 		width: initial;
 	}
-	span.form-add.ic {
-		font-size: 2.25rem;
+	span.ic {
+  margin: 0 50%;
+  transform: translateX(-50%);
+	}
+	.notification{
+		min-width: 60vw !important;
+		font-size: 0.8rem !important;
+  margin: 0 15vw !important;
+		left: unset !important;
 	}
 }
 
@@ -323,15 +338,16 @@ span.inputWrapper {
 }
 
 .notification {
-	width: 10vw;
+	width: 15vw;
 	display: flex;
 	justify-content: center;
 	position: absolute;
 	left: 43vw;
 	padding: 0.5vh;
-	background: #716ea6;
+	background: #3d5468;
 	border-radius: 5px;
 	color: white;
+	z-index: 2;
 	font-size: 1.25rem;
 }
 .error {
