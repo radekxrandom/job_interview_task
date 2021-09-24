@@ -30,19 +30,25 @@ const EventPage = props => {
 		formErrors,
 		setFormErrors
 	);
-	const [isFormShaking, isFormRejected, submit, displayErrAlert, percentage] =
-		useFormHook(
-			Validator,
-			FieldsValidator,
-			setFormErrors,
-			clearForm,
-			formValues,
-			toggleForm
-		);
+	const [
+		isFormShaking,
+		isFormRejected,
+		notificationText,
+		submit,
+		displayErrAlert,
+		percentage,
+	] = useFormHook(
+		Validator,
+		FieldsValidator,
+		setFormErrors,
+		clearForm,
+		formValues,
+		toggleForm
+	);
 
 	return (
-		<Zoom>
-			<Notification show={isFormRejected} title='Form rejected' />
+		<>
+			<Notification show={isFormRejected} title={notificationText} />
 			<EventList>
 				{!isFormOpen ? (
 					<IconButton
@@ -68,7 +74,7 @@ const EventPage = props => {
 					/>
 				)}
 			</EventList>
-		</Zoom>
+		</>
 	);
 };
 export default EventPage;
