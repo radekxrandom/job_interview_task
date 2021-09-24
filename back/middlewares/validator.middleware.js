@@ -15,7 +15,7 @@ const validate = (schema, property) => {
 				key: el.context.key,
 			}));
 
-			res.status(422).json({ error: message });
+			return res.status(422).json({ error: message });
 		}
 	};
 };
